@@ -1,7 +1,7 @@
 #include <string>     // string
 #include <fstream>
 #include <iterator>   // next()
-#include <stdexcept>  // invalid_argument
+#include <stdexcept>  // invalid_argument // written by Chris Huynh
 
 #include "RepairList.hpp"
 
@@ -64,7 +64,7 @@ RepairList & RepairList::operator+=( const RepairList & rhs)
 // TO DO
 // return the size of the list
 // If you decide to use std::forward_list, keep in mind that some implementations of a singly linked list maintain the size (number of elements in the list).  // std::forward_list does not. The size of singly linked list must be calculated on demand by walking the list from beginning to end counting the
-// number of elements visited.  The STL's std::distance() function does that, or you can write your own loop.
+// number of elements visited.  The STL's std::distance() function does that, or you can write your own loop. // written by Chris Huynh
 std::size_t RepairList::size() const
 {
 	// return the size of the list
@@ -82,6 +82,7 @@ Repair RepairList::currRepair() const
 
 // read the list of advanced repair requests from
 // the specified file
+// written by Chris Huynh
 void RepairList::loadAdvanceList( const std::string& filename )
 {
   std::ifstream inFile(filename);
@@ -106,6 +107,7 @@ void RepairList::loadAdvanceList( const std::string& filename )
 // TO DO
 // the current repair has been serviced so 
 // move the iterator to the next request
+// written by Chris Huynh
 void RepairList::next()
 {
 }
@@ -113,6 +115,7 @@ void RepairList::next()
 
 // TO DO
 // add a repair request to the current list
+// written by Chris Huynh
 void RepairList::addToList( const Repair& newRequest )
 {
 }
@@ -124,3 +127,4 @@ void RepairList::addToList( const Repair& newRequest )
 void RepairList::insertLoyal( const Repair& newRequest )
 {
 }
+// written by Chris Huynh
