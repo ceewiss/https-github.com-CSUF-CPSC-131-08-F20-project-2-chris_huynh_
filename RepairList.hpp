@@ -29,7 +29,7 @@ public:
   // read from a file
   void loadAdvanceList(const std::string& filename);
   
-	// Mutators
+	// Mutators // written Chris Huynh
   void next(); // TO DO //go to the next repair request in the list, if any; return error if none
   void addToList(const Repair& newRequest); // TO DO // append a new repair request to the end of the list
 	void insertLoyal(const Repair& newRequest); // TO DO // insert a new repair request in the current position of the list 
