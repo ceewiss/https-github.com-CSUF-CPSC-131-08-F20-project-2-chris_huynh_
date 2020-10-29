@@ -72,6 +72,7 @@ std::size_t RepairList::size() const
 
 // TO DO
 // return the current repair
+// written by Chris Huynh
 Repair RepairList::currRepair() const
 {
 }
@@ -124,7 +125,8 @@ void RepairList::addToList( const Repair& newRequest )
 // insert a repair request coming from a loyal customer
 // right after the current iterator but do not make
 // changes to the current iterator
+// written by Chris Huynh
 void RepairList::insertLoyal( const Repair& newRequest )
 {
 }
-// written by Chris Huynh 
+
