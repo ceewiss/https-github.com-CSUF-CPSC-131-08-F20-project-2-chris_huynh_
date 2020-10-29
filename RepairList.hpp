@@ -1,4 +1,4 @@
-#include <list>     // doubly linked list
+#include <list>     // doubly linked list  // written by Chris Huynh
 #include <string>
 
 #include "Repair.hpp"
@@ -41,3 +41,4 @@ private:
 	std::list<Repair> _dailyList;
 	std::list<Repair>::iterator _nowServicing = _dailyList.end();
 }; 
+// written by Chris Huynh
