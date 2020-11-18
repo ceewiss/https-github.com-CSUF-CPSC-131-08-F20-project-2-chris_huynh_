@@ -81,52 +81,58 @@ Repair RepairList::currRepair() const
 ** Mutators
 ************************/
 
-// read the list of advanced repair requests from
-// the specified file
-// written by Chris Huynh
-void RepairList::loadAdvanceList( const std::string& filename )
+// read the list of advanced repair requests from the specified file
+void RepairList::loadAdvanceList(const std::string& filename)
 {
-  std::ifstream inFile(filename);
-  Repair newRequest;
+std::ifstream inFile(filename);
+Repair newRequest;
 
-  if( inFile.is_open() )
-    {
-      // Read each line
-      while (inFile >> newRequest) {
-	addToList(newRequest);
-      }
-
-      inFile.close();  // file closes 
-      _nowServicing = _dailyList.begin();
-    }
-  else
-    {
-      throw std::invalid_argument( "Could not open " + filename );
-    }
+if (inFile.is_open())
+{
+// Read each line
+while (inFile >> newRequest) {
+addToList(newRequest);
 }
 
-// TO DO
-// the current repair has been serviced so 
-// move the iterator to the next request
-// written by Chris Huynh
+inFile.close(); // file closes
+_nowServicing = _dailyList.begin();
+}
+else
+{
+throw std::invalid_argument("Could not open " + filename);
+}
+}
+
+// the current repair has been serviced so move the iterator to the next request
 void RepairList::next()
 {
+// current iterator not reached end of list
+   if(_nowServicing != _dailyList.end())
+_nowServicing = std::next(_nowServicing); // returns an iterator pointing to the next Repair in the list
+else
+throw std::invalid_argument("End of list reached");
 }
 
-
-// TO DO
 // add a repair request to the current list
-// written by Chris Huynh
-void RepairList::addToList( const Repair& newRequest )
+void RepairList::addToList(const Repair& newRequest)
 {
+_dailyList.push_back(newRequest); // add newRequest at the end
 }
 
-// TO DO
 // insert a repair request coming from a loyal customer
 // right after the current iterator but do not make
 // changes to the current iterator
-// written by Chris Huynh
-void RepairList::insertLoyal( const Repair& newRequest )
+void RepairList::insertLoyal(const Repair& newRequest)
 {
+std::list<Repair>::iterator itr = _nowServicing; // get the current iterator
+
+if(itr == _dailyList.end()) // if current repair is at the end, insert it at the end of list
+addToList(newRequest);
+else
+{
+itr++; // increment itr
+_dailyList.insert(itr, newRequest); // insert newRequest before itr
+}
 }
 
+// end of RepairList.cxx
